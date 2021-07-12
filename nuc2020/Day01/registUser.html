@@ -1,0 +1,40 @@
+<!--DOCTYPE指：文档类型定义，定义网页根元素html-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--设置编码为UTF-8,防止乱码-->
+		<meta charset="UTF-8">
+		<title>用户注册</title>
+	</head>
+	<body>
+		<form action="receive.html">
+			用户名<input type="text" placeholder="请输入用户名">
+			<br>
+			密码<input type="password" placeholder="请输入密码">
+			<br>
+			性别<input type="radio" name="gender">男
+			<input type="radio" name="gender">女
+			<br>
+			籍贯<select>
+				<option>山西太原</option>
+				<option>山西大同</option>
+				<option>山西运城</option>
+				<option>其它</option>
+			</select>
+			<br>
+			爱好<input type="checkbox">旅游
+			<input type="checkbox">游泳
+			<input type="checkbox">踢球
+			<input type="checkbox">其它
+			<br>
+			自我介绍<textarea rows="5" cols="50">
+				我是田梓萱，Hello WEB!
+			</textarea>
+			<br>
+			上传简历<input type="file">
+			<br>
+			<input type="submit" value="注册">
+			<input type="reset" value="清空重填">
+		</form>
+	</body>
+</html>
