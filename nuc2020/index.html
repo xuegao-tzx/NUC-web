@@ -5,6 +5,39 @@
 		<title></title>
 	</head>
 	<body>
+		<style>  
+		
+			#t_d{   color: #982585;     font-size: 16px; }  
+			#t_h{   color: #982585;     font-size: 16px; }
+			#t_m{   color: #982585;     font-size: 16px; }
+			#t_s{   color: #982585;     font-size: 16px; }
+			#t_t{	color: #E80017;		font-size: 20px; }
+			#djs{	text-align:center;	width: 200px;	height: 90px; }
+		</style>  
+		<div id="djs">			
+			<span id="t_t">2022新年倒计时</span><br>
+			<span id="t_d">天</span><span id="t_h">时</span><span id="t_m">分</span><span id="t_s">秒</span> 
+		</div>
+			<script type="text/javascript">  
+				function getRTime() {        
+					var EndTime = new Date('2022/02/1 00:00:00');       
+					var NowTime = new Date();       
+					var t = EndTime.getTime() - NowTime.getTime();              
+					var d = Math.floor(t / 1000 / 60 / 60 / 24);              
+					var h = Math.floor(t / 1000 / 60 / 60 % 24);              
+					var m = Math.floor(t / 1000 / 60 % 60);              
+					var s = Math.floor(t / 1000 % 60);      
+					var day = document.getElementById("t_d");     
+					if (day != null) { day.innerHTML = d + " 天"; }     
+					var hour = document.getElementById("t_h");     
+					if (hour != null) { hour.innerHTML = h + " 时"; }
+					var min = document.getElementById("t_m");     
+					if (min != null) { min.innerHTML = m + " 分"; }
+					var sec = document.getElementById("t_s");     
+					if (sec != null) { sec.innerHTML = s + " 秒"; } 
+				}
+				setInterval(getRTime, 1000); 
+			</script> 
 		
 	</body>
 </html>

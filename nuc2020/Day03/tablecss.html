@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格样式</title>
+		<style>
+			table{
+				width: 500px;
+				height: 80px;
+				text-align: center;/*表格内文字居中*/
+				/*边框折叠，无空心*/
+				border-collapse: collapse;
+			}
+			/*同时施加样式*/
+			table,tr,td{
+				/*边框宽度1px 实线 黑色*/
+				border: 1px solid black;
+			}
+			a{
+				text-decoration: none;
+			}
+			a:hover{
+				color: #E80017;
+			}
+		</style>
+	</head>
+	<body>
+		<table align="center">
+			<tr>
+				<td>学号</td>
+				<td>姓名</td>
+				<td>籍贯</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>123</td>
+				<td>XXX</td>
+				<td>ys</td>
+				<!--这个以超链接为例-->
+				<td>
+					<a href="网址">修改</a>
+					<a href="网址">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>123</td>
+				<td>XXX</td>
+				<td>sh</td>
+				<td>修改 删除</td>
+			</tr>
+			<tr>
+				<td>123</td>
+				<td>XXX</td>
+				<td>jz</td>
+				<td>修改 删除</td>
+			</tr>
+			<tr>
+				<td>123</td>
+				<td>XXX</td>
+				<td>ty</td>
+				<td>修改 删除</td>
+			</tr>
+			<tr>
+				<td>123</td>
+				<td>XXX</td>
+				<td>sx</td>
+				<td>修改 删除</td>
+			</tr>
+		</table>
+	</body>
+</html>
