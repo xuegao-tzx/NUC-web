@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人社保计算器</title>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+			function jisuan(){
+				//1.获得工资，表单验证看输入是否合法
+				var sal=document.getElementById("salary").value;//取得工资
+				//表单验证是否合法
+				var regExp=/^[0-9]{4,5}$/;//最多5位，最少4位
+				if (!regExp.test(sal)) {
+					//到此说明不合法
+					document.getElementById("salary").value="输入不合法，必须为4-5位数字";
+					document.getElementById("salary").style="color: red";
+					return;
+				}
+				//2.输入合法，开始算
+				var salnum=parseInt(sal);//字符串转为数字
+				var ylgr=salnum*0.08;//个人交养老保险
+				var ylgs=salnum*0.2;//公司交养老保险
+				var ybgr=salnum*0.02;
+				var ybgs=salnum*0.06;
+				var sygr=salnum*0.005;
+				var sygs=salnum*0.015;
+				var gsgs=salnum*0.005;
+				var syugs=salnum*0.008;
+				var gjjgr=salnum*0.12;
+				var gjjgs=salnum*0.12;
+				var hjgr=ylgr+ybgr+sygr+gjjgr;
+				var hjgs=ylgs+ybgs+sygs+gsgs+syugs+gjjgs;
+				var total=hjgs+salnum;
+				
+				//3.把计算结果放入单元格
+				document.getElementById("ylgr").innerHTML=ylgr;
+				document.getElementById("ylgs").innerText=ylgs;
+				document.getElementById("ybgr").innerHTML=ybgr;
+				document.getElementById("ybgs").innerText=ybgs;
+				document.getElementById("sygr").innerHTML=sygr;
+				document.getElementById("sygs").innerText=sygs;
+				document.getElementById("gsgs").innerHTML=gsgs;
+				document.getElementById("syugs").innerText=syugs;
+				document.getElementById("gjjgr").innerHTML=gjjgr;
+				document.getElementById("gjjgs").innerText=gjjgs;
+				document.getElementById("hjgr").innerHTML=hjgr;
+				document.getElementById("hjgs").innerText=hjgs;
+				document.getElementById("total").innerText=total;
+				
+			}
+			function clearCon(){
+				//清空内容
+				document.getElementById("salary").value='';
+				document.getElementById("salary").style="color: black";
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container text-center">
+			<img src="https://z3.ax1x.com/2021/07/15/Wex85d.jpg" class="img-circle" width="100px">
+			<table class="table table-bordered text-center">
+				<tr>
+					<td >工资</td>
+					<td colspan="3">
+						<input onfocus="clearCon()" type="text" id="salary" placeholder="请输入工资" class="form-control">
+					</td>
+					<td>
+					<button onclick="jisuan()" class="btn btn-block btn-danger" id="jisu">计算</button>
+					</td>
+				</tr>
+				<tr class="bg-primary">
+					<td>险种</td>
+					<td>个人%</td>
+					<td>个人</td>
+					<td>公司%</td>
+					<td>公司</td>
+				</tr>
+				<tr>
+					<td>养老</td>
+					<td>8%</td>
+					<td id="ylgr"></td>
+					<td>20%</td>
+					<td id="ylgs"></td>
+				</tr>
+				<tr>
+					<td>医疗</td>
+					<td>2%</td>
+					<td id="ybgr"></td>
+					<td>6%</td>
+					<td id="ybgs"></td>
+				</tr>
+				<tr>
+					<td>失业</td>
+					<td>0.5%</td>
+					<td id="sygr"></td>
+					<td>1.5%</td>
+					<td id="sygs"></td>
+				</tr>
+				<tr>
+					<td>工商</td>
+					<td></td>
+					<td></td>
+					<td>0.5%</td>
+					<td id="gsgs"></td>
+				</tr>
+				<tr>
+					<td>生育</td>
+					<td></td>
+					<td></td>
+					<td>0.8%</td>
+					<td id="syugs"></td>
+				</tr>
+				<tr>
+					<td>公积金</td>
+					<td>12%</td>
+					<td id="gjjgr"></td>
+					<td>12%</td>
+					<td id="gjjgs"></td>
+				</tr>
+				<tr>
+					<td>合计</td>
+					<td>个人合计</td>
+					<td id="hjgr"></td>
+					<td>公司合计</td>
+					<td id="hjgs"></td>
+				</tr>
+				<tr>
+					<td>总额</td>
+					<td id="total" colspan="4"></td>
+				</tr>
+			</table>
+			开发者信息: 小草林
+		</div>
+	</body>
+</html>
