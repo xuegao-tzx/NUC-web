@@ -6,15 +6,27 @@
 	</head>
 	<body>
 		<style>  
-		
+	
+		*{
+		margin: 0;
+		padding: 0;
+		}
+		.glass{
+			width: 200px;	height: 45px;
+			filter: blur(20px);
+			position: fixed;
+			z-index: -99;
+			border: 5px solid transparent;
+		}	
 			#t_d{   color: #982585;     font-size: 16px; }  
 			#t_h{   color: #982585;     font-size: 16px; }
 			#t_m{   color: #982585;     font-size: 16px; }
 			#t_s{   color: #982585;     font-size: 16px; }
 			#t_t{	color: #E80017;		font-size: 20px; }
-			#djs{	text-align:center;	width: 200px;	height: 90px; }
+			#djs{	text-align:center;	width: 200px;	height: 45px; box-shadow: 0 0px 30px #333;	 border: 5px solid transparent;}
 		</style>  
-		<div id="djs">			
+		<div id="djs">	
+			<div class="glass"></div>
 			<span id="t_t">2022新年倒计时</span><br>
 			<span id="t_d">天</span><span id="t_h">时</span><span id="t_m">分</span><span id="t_s">秒</span> 
 		</div>
